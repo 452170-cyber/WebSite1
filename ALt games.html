@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="styles.css">
 <style>
-
-
-
-
+/* Responsive header for mobile */
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.header-container h2 {
+  font-size: 1.5em;
+  margin: 0 10px 0 0;
+}
+.header-container a, .header-container .search-bar {
+  margin: 5px 5px;
+  font-size: 1.1em;
+  padding: 10px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+.search-bar {
+  width: 100%;
+  max-width: 200px;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .header-container h2 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .header-container a, .header-container .search-bar {
+    width: 100%;
+    margin: 6px 0;
+    font-size: 1.2em;
+    padding: 14px 0;
+  }
+  .search-bar {
+    max-width: 100%;
+  }
+}
 </style> 
 </head>
 <body>
