@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="styles.css">
+<title>Proceed to Checkout - MusicVibes</title>
+</head>
+<body>
+
+  <h1>Checkout</h1>
+<form>
+<label for="city/town">City/Town:</label><br>
+  <input type="text" id="city/town" name="city/town" required><br><br>
+
+  <label for="address">Address:</label><br>
+  <input type="text" id="address" name="address" required><br><br>
+
+  <label for="post-code">Post Code:</label><br>
+  <input type="text" id="post-code" name="post-code" required><br><br>
+
+
+  <label>Payment Method:</label><br>
+  <input type="radio" id="card" name="payment" value="card" checked>
+  <label for="card">Credit/Debit Card</label>
+  <input type="radio" id="paypal" name="payment" value="paypal">
+  <label for="paypal">PayPal</label><br><br>
+
+  <div id="card-fields">
+    <label for="cardnumber">Card Number:</label><br>
+    <input type="text" id="cardnumber" name="cardnumber"><br>
+    <label for="expiry">Expiry:</label><br>
+    <input type="text" id="expiry" name="expiry" placeholder="MM/YY"><br>
+    <label for="cvv">CVV:</label><br>
+    <input type="text" id="cvv" name="cvv"><br><br>
+  </div>
+
+  <div id="paypal-fields" style="display:none;">
+    <label for="paypal-email">PayPal Email:</label><br>
+    <input type="email" id="paypal-email" name="paypal-email"><br><br>
+  </div>
+
+  <button type="submit">Place Order</button>
+</form>
+<script>
+const cardRadio = document.getElementById('card');
+const paypalRadio = document.getElementById('paypal');
+const cardFields = document.getElementById('card-fields');
+const paypalFields = document.getElementById('paypal-fields');
+
+cardRadio.addEventListener('change', function() {
+  if (cardRadio.checked) {
+    cardFields.style.display = '';
+    paypalFields.style.display = 'none';
+  }
+});
+paypalRadio.addEventListener('change', function() {
+  if (paypalRadio.checked) {
+    cardFields.style.display = 'none';
+    paypalFields.style.display = '';
+  }
+});
+</script>
+
+</body>
+</html>
+

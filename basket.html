@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="styles.css">
+<title>Basket - MusicVibes</title>
+<style>
+.basket-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.basket-table th,
+.basket-table td {
+  border: 1px solid #000000;
+  padding: 8px 10px;
+  text-align: left;
+}
+.basket-table th {
+  background: #f4f4f4;
+}
+.basket-table tfoot td {s
+  font-weight: 600;
+}
+.qty { width: 80px; text-align: center; }
+.price { width: 120px; text-align: right; }
+
+.proceed-checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+  border: 1px solid rgb(255, 0, 0);
+  margin: 24px auto 0 auto;
+  border-radius: 30px;
+  background: #ffffff;
+  color: #222;
+  font-weight: bold;
+  text-decoration: none;
+  width: fit-content;
+  font-size: 1.1em;
+  transition: background 0.2s;
+}
+.proceed-checkout:hover {
+  background: #e0e0e0;
+}
+
+
+/*hotbarr*/
+</style>
+</head>
+<body>
+
+<div class="header-container">
+  <h2><a href="index.html" style="text-decoration: none; color: inherit;">MusicVibes</a></h2>
+ <input class="search-bar" type="text" placeholder="🔍︎ search media" style="margin-right: 10px;" />
+  <a href="index.html" class="home-page">Home</a>
+  <a href="basket.html" class="basket-page">🛒</a>
+  <a href="products.html" class="products-page">Products</a>
+  <a href="contact.html" class="contact-page">Contact</a>
+  <a href="connect-lobby.html" class="connect-lobby-page">Connect Lobby</a>
+  <a href="more.html" class="more-page">More</a>
+</div>
+
+
+<div class="content">
+  <h1>Your Basket</h1>
+  <p>Items in your shopping basket:</p>
+  <table class="basket-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th class="qty">Quantity</th>
+        <th class="price">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> empty </td>
+        <td class="qty">0</td>
+        <td class="price">£0.00</td>
+      </tr>
+      <tr>
+        <td> empty </td>
+        <td class="qty">0</td>
+        <td class="price">£0.00</td>
+      </tr>
+      <tr>
+        <td> empty </td>
+        <td class="qty">0</td>
+        <td class="price">£0.00</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total</td>
+        <td class="price">£0.00</td>
+      </tr>
+    </tfoot>
+  </table>
+  <a href="proceed-checkout.html" class="proceed-checkout">Proceed to Checkout!</a>
+</div>
+
+</body>
+</html>
