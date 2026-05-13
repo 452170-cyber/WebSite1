@@ -32,28 +32,37 @@
       <img src="../images/dunept2.jpg" alt="Dune Part 2">
       <p>Dune Part Two</p>
       <p>£14.99</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Dune Part Two', 14.99)">🛒 Add to Basket</button>
     </div>
     <div class="movie-item">
       <img src="../images/him.jpg" alt="Him">
       <p>him</p>
       <p>£15.99</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('him', 15.99)">🛒 Add to Basket</button>
     </div>
     <div class="movie-item">
       <img src="../images/aquamantlk.jpg" alt="Aquaman">
       <p>Aquaman And The Lost Kingdom</p>
       <p>£13.99</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Aquaman And The Lost Kingdom', 13.99)">🛒 Add to Basket</button>
     </div>
     <div class="movie-item">
       <img src="../images/scream.jpg" alt="Scream">
       <p>Scream</p>
       <p>£14.49</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Scream', 14.49)">🛒 Add to Basket</button>
     </div>
   </div>
 </div>
+
+<script>
+function addToBasket(name, price) {
+  let basket = JSON.parse(localStorage.getItem('basket')) || [];
+  basket.push({ name, price });
+  localStorage.setItem('basket', JSON.stringify(basket));
+  alert(name + ' added to basket!');
+}
+</script>
 
 </body>
 </html>

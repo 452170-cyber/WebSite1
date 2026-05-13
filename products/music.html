@@ -21,3 +21,53 @@
 </div>
 
 <a href="https://www.music-news.com/" class="header-container">-Music News-    click here</a>
+
+<div class="content">
+  <h1>CDs</h1>
+  <p>Browse our collection of CDs/vinyls.</p>
+
+  <h2>Most Popular CDs</h2>
+  <div class="popular-games"> 
+    <div class="game-item">
+      <img src="../images/tyler-creator-cd.jpg" alt="Tyler, The Creator - Call Me If You Get Lost - CD">
+      <p>Tyler, The Creator - chromalopia</p>
+      <p>£36.00</p>
+      <button onclick="addToBasket('Tyler, The Creator - chromalopia - CD', 36.00)">🛒 Add to Basket</button>
+    </div>
+
+    <div class="game-item">
+      <img src="../images/bruno-mars-cd.jpg" alt="the romantic - CD">
+      <p>Bruno Mars - the romantic</p>
+      <p>£29.99</p>
+      <button onclick="addToBasket('Bruno Mars - the romantic - CD', 29.99)">🛒 Add to Basket</button>
+    </div>
+  </div> 
+
+  <h2>Most Popular Vinyls</h2>
+  <div class="popular-games"> 
+    <div class="game-item">
+      <img src="../images/kandrick-lemar-vinyl.jpg" alt="Kendrick Lamar - To Pimp a Butterfly - Vinyl">
+      <p>Kendrick Lamar - To Pimp a Butterfly</p>
+      <p>£36.00</p>
+      <button onclick="addToBasket('Kendrick Lamar - To Pimp a Butterfly - Vinyl', 36.00)">🛒 Add to Basket</button>
+    </div>
+
+    <div class="game-item">
+      <img src="../images/kanye-west-vinyl.jpg" alt="kanye west - vultures - Vinyl">
+      <p>kanye west - vultures</p>
+      <p>£29.99</p>
+      <button onclick="addToBasket('kanye west - vultures - Vinyl', 29.99)">🛒 Add to Basket</button>
+    </div>
+  </div> 
+</div>
+
+<script>
+function addToBasket(name, price) {
+  let basket = JSON.parse(localStorage.getItem('basket')) || [];
+  basket.push({ name, price });
+  localStorage.setItem('basket', JSON.stringify(basket));
+  alert(name + ' added to basket!');
+}
+</script>
+</body>
+</html>

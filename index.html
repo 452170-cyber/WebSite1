@@ -31,3 +31,20 @@
 
 </body>
 </html>
+
+
+<h1 id="clock">Loading...</h1>
+
+<script>
+function updateClock() {
+  const now = new Date();
+ 
+  document.getElementById('clock').innerText = now.toLocaleTimeString();
+}
+
+
+updateClock();
+
+
+setInterval(updateClock, 1000);
+</script>

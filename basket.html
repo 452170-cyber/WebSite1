@@ -73,32 +73,71 @@
         <th class="price">Price</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td> empty </td>
-        <td class="qty">0</td>
-        <td class="price">£0.00</td>
-      </tr>
-      <tr>
-        <td> empty </td>
-        <td class="qty">0</td>
-        <td class="price">£0.00</td>
-      </tr>
-      <tr>
-        <td> empty </td>
-        <td class="qty">0</td>
-        <td class="price">£0.00</td>
-      </tr>
+    <tbody id="basket-body">
+      <!-- Basket items will be inserted here -->
     </tbody>
     <tfoot>
       <tr>
         <td colspan="2">Total</td>
-        <td class="price">£0.00</td>
+        <td class="price" id="basket-total">£0.00</td>
       </tr>
     </tfoot>
   </table>
   <a href="proceed-checkout.html" class="proceed-checkout">Proceed to Checkout!</a>
 </div>
+
+<script>
+function renderBasket() {
+  // Debug: See what's in localStorage
+  console.log('Basket in localStorage:', localStorage.getItem('basket'));
+  const basket = JSON.parse(localStorage.getItem('basket')) || [];
+  const basketBody = document.getElementById('basket-body');
+  const basketTotal = document.getElementById('basket-total');
+  basketBody.innerHTML = '';
+  let total = 0;
+  const itemMap = {};
+  basket.forEach(item => {
+    if (itemMap[item.name]) {
+      itemMap[item.name].qty += 1;
+      itemMap[item.name].totalPrice += item.price;
+    } else {
+      itemMap[item.name] = {
+        name: item.name,
+        price: item.price,
+        qty: 1,
+        totalPrice: item.price
+      };
+    }
+  });
+  Object.values(itemMap).forEach(item => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${item.name}</td>
+      <td class="qty">${item.qty}</td>
+      <td class="price">£${item.totalPrice.toFixed(2)}</td>
+    `;
+    basketBody.appendChild(tr);
+    total += item.totalPrice;
+  });
+  if (basket.length === 0) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>empty</td>
+      <td class="qty">0</td>
+      <td class="price">£0.00</td>
+    `;
+    basketBody.appendChild(tr);
+  }
+  basketTotal.textContent = `£${total.toFixed(2)}`;
+}
+renderBasket();
+
+window.addEventListener('storage', function(e) {
+  if (e.key === 'basket') {
+    renderBasket();
+  }
+});
+</script>
 
 </body>
 </html>

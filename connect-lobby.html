@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="styles.css">
-<title>Connect Lobby - MusicVibes</title>
+   <link rel="stylesheet" href="styles.css">
+<title>More - MusicVibes</title>
 <style>
+
 
 </style>
 </head>
@@ -11,7 +12,7 @@
 
 <div class="header-container">
   <h2><a href="index.html" style="text-decoration: none; color: inherit;">MusicVibes</a></h2>
-  <input class="search-bar" type="text" placeholder="🔍︎ search media" style="margin-right: 10px;" />
+ <input class="search-bar" type="text" placeholder="🔍︎ search media" style="margin-right: 10px;" />
   <a href="index.html" class="home-page">Home</a>
   <a href="basket.html" class="basket-page">🛒</a>
   <a href="products.html" class="products-page">Products</a>
@@ -20,11 +21,38 @@
   <a href="more.html" class="more-page">More</a>
 </div>
 
-<div class="content">
-  <h1>Connect Lobby</h1>
-  <p>Join the community and connect with other players.</p>
-  <!-- Add lobby content here -->
+<div style="max-width:600px;margin:30px auto;">
+  <h2>Connect Lobby Forum</h2>
+<button onclick="document.getElementById('post-form').style.display='block';this.style.display='none';" id="show-post-form">Make Post</button>
+<form id="post-form" style="display:none;">
+  <select id="cat"><option>games</option><option>music</option><option>films</option></select>
+  <input id="title" placeholder="Title">
+  <input id="msg" placeholder="Message">
+  <button type="submit">Post</button>
+  <button type="button" onclick="this.form.style.display='none';document.getElementById('show-post-form').style.display='inline';">Cancel</button>
+</form>
+<div id="posts"></div>
+<script>
+let posts=[
+  {cat:'games',title:'Spider-Man 2',msg:'Just finished Spider-Man 2!',likes:0,comments:['Spider-Man 2: Amazing!','Spider-Man 2: Loved it.','Spider-Man 2: Boss fights!']},
+  {cat:'music',title:'Bruno Mars CD',msg:'Best track?',likes:0,comments:['Bruno Mars CD: 24K Magic!','Bruno Mars CD: Versace!','Bruno Mars CD: All good.']},
+  {cat:'films',title:'Dune Part 2',msg:'Thoughts?',likes:0,comments:['Dune Part 2: Visuals!','Dune Part 2: Acting!','Dune Part 2: More please!']}
+];
+function show(){
+  let html='';
+  posts.forEach((p,i)=>{
+    html+=`<div style='border:1px solid #ccc;padding:8px;margin:8px 0;'>
+      <b>${p.title}</b> (${p.cat})<br>${p.msg}<br>
+      <button onclick='like(${i})'>Like (${p.likes})</button>
+      <div>${p.comments.map(c=>'<div>'+c+'</div>').join('')}</div>
+    </div>`;
+  });
+  document.getElementById('posts').innerHTML=html;
+}
+function like(i){posts[i].likes++;show();}
+document.getElementById('post-form').onsubmit=function(e){e.preventDefault();posts.unshift({cat:cat.value,title:title.value,msg:msg.value,likes:0,comments:[]});show();this.reset();this.style.display='none';document.getElementById('show-post-form').style.display='inline';};
+show();
+</script>
 </div>
-
 </body>
 </html>

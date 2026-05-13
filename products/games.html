@@ -32,25 +32,25 @@
       <img src="../images/FC26X.jpg" alt="SPORTS FC26">
       <p>SPORTS FC26</p>
       <p>£36.00</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('SPORTS FC26', 36.00)">🛒 Add to Basket</button>
     </div>
     <div class="game-item">
       <img src="../images/batmanX.jpg" alt="Batman">
       <p>Batman</p>
       <p>£40.00</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Batman', 40.00)">🛒 Add to Basket</button>
     </div>
     <div class="game-item">
       <img src="../images/residentevilX.jpg" alt="Resident Evil">
       <p>Resident Evil</p>
       <p>£42.00</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Resident Evil', 42.00)">🛒 Add to Basket</button>
     </div>
     <div class="game-item">
       <img src="../images/starwarsX.jpg" alt="Star Wars">
       <p>Star Wars</p>
       <p>£38.00</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Star Wars', 38.00)">🛒 Add to Basket</button>
     </div>
   </div>
 </div>
@@ -62,29 +62,37 @@
       <img src="../images/blackops6.jpg" alt="Call of Duty: Black Ops 6">
       <p>Call of Duty: Black Ops 6</p>
       <p>£44.99</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Call of Duty: Black Ops 6', 44.99)">🛒 Add to Basket</button>
     </div>
     <div class="game-item">
       <img src="../images/FC26.jpg" alt="FC26">
       <p>FC26</p>
       <p>£39.99</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('FC26', 39.99)">🛒 Add to Basket</button>
     </div>
     <div class="game-item">
       <img src="../images/spiderman2.jpg" alt="Spider-Man 2">
       <p>Spider-Man 2</p>
       <p>£41.99</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Spider-Man 2', 41.99)">🛒 Add to Basket</button>
     </div>
     <div class="game-item">
       <img src="../images/splitfiction.jpg" alt="Split Fiction">
       <p>Split Fiction</p>
       <p>£36.99</p>
-      <span class="basket-icon">🛒</span>
+      <button onclick="addToBasket('Split Fiction', 36.99)">🛒 Add to Basket</button>
     </div>
   </div>
 </div>
 
+<script>
+function addToBasket(name, price) {
+  let basket = JSON.parse(localStorage.getItem('basket')) || [];
+  basket.push({ name, price });
+  localStorage.setItem('basket', JSON.stringify(basket));
+  alert(name + ' added to basket!');
+}
+</script>
 </body>
 </html>
 

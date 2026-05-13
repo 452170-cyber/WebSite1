@@ -10,41 +10,50 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 16px;
 }
 .header-container h2 {
-  font-size: 1.5em;
-  margin: 0 10px 0 0;
+  font-size: 2em;
+  margin: 0 12px 0 0;
 }
 .header-container a, .header-container .search-bar {
-  margin: 5px 5px;
-  font-size: 1.1em;
-  padding: 10px 12px;
-  border-radius: 6px;
+  margin: 8px 8px;
+  font-size: 1.2em;
+  padding: 16px 18px;
+  border-radius: 8px;
   display: inline-block;
 }
 .search-bar {
   width: 100%;
-  max-width: 200px;
+  max-width: 260px;
   box-sizing: border-box;
+  font-size: 1.2em;
+  padding: 16px 12px;
 }
 @media (max-width: 600px) {
+  html, body {
+    font-size: 22px;
+  }
   .header-container {
     flex-direction: column;
     align-items: stretch;
+    padding: 18px 6px;
   }
   .header-container h2 {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     text-align: center;
+    font-size: 2.2em;
   }
   .header-container a, .header-container .search-bar {
     width: 100%;
-    margin: 6px 0;
-    font-size: 1.2em;
-    padding: 14px 0;
+    margin: 10px 0;
+    font-size: 1.3em;
+    padding: 20px 0;
   }
   .search-bar {
     max-width: 100%;
+    font-size: 1.3em;
+    padding: 20px 12px;
   }
 }
 </style> 
@@ -53,7 +62,7 @@
 
 <div class="header-container">
   <h2><a href="index.html" style="text-decoration: none; color: inherit;">MusicVibes</a></h2>
- <input class="search-bar" type="text" placeholder="🔍︎ search media" style="margin-right: 10px;" />
+ <input class="search-bar" type="text" placeholder="🔍︎ search media" />
   <a href="index.html" class="home-page">Home</a>
   <a href="basket.html" class="basket-page">🛒</a>
   <a href="products.html" class="products-page">Products</a>
